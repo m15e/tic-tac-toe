@@ -1,44 +1,104 @@
 #!/usr/bin/env ruby
 
 class Interface
+  require 'io/console'
 
-  @@positions = [1,2,3,4,5,6,7,8,9]
+  @@move_range = [1,2,3,4,5,6,7,8,9] # TODO: Transfer to game logic in Milestone 3
+  @@move_map = { 1=>0, 2=>2, 3=>4, 4=>0, 5=>2, 6=>4, 7=>0, 8=>2, 9=>4 } 
   
+  def initialize           
+    @turn_count = 0     
+    @next_player = 2    
+    @grid = ["_|_|_",
+             "_|_|_",
+             " | | "]
 
-  def initialize
-    puts "\nWelcome to Tic Tac Toe!\n\n"    
-
-    @controls = "1|2|3\n4|5|6\n7|8|9"
+    @control_grid = ["1|2|3",
+                     "4|5|6",
+                     "7|8|9"]
     
-    @grid = ["_|_|_\n_|_|_\n | | "]
-    
-   
-    
-
-    puts @controls
-    puts "\n"
-    puts @grid
-
-    puts "\nPlease enter a number between 1-9 to make the first move!"  
-
+    print_introduction
+    display_game        
+    display_controls        
+    puts "Player 1 please enter your first move (or press q + enter to exit game):"
+    play
   end
 
+  def print_introduction
+    puts "Welcome to Tic Tac Toe!"     
+    puts 'Player 1, you start! Your move\'s marker is represented by "x".'
+    puts 'Player 2, you go next! Your marker is represented by "o".'
+    puts 'The goal is to get three of your markers in a row, along the rows, columns or diagonally.'
+    puts 'It\'s a draw if the board is full and neither player has succeded.' 
+    puts "Select a square on the grid for your next move.\n\n"
+  end
+
+  def display_game    
+    @grid.each {|row| puts row}    
+  end
+
+  def display_controls    
+    puts "\nEnter a number from 1 to 9 to place your marker on the game grid above. The grid below shows where your marker will be placed if you enter a number."    
+    @control_grid.each {|row| puts row}    
+  end
+  
   def get_input
-    move = gets.chomp.to_i
+    STDIN.noecho(&:gets).chomp
+  end
+
+  def player_move    
     
-    if @@positions.include? move
-      @grid_arr[move-1] = "x"
-      puts @grid
+    move = get_input
+    move_int = move.to_i    
+    if @@move_range.include? move_int
+      puts "Previous move: #{move}"
+      puts "Turn: #{@turn_count}, Player #{@next_player.to_s} is up next."
+      if move_int < 4
+        @grid[0][@@move_map[move_int]] = player_symbol        
+      elsif move_int > 3 and move_int < 7
+        @grid[1][@@move_map[move_int]] = player_symbol        
+      else
+        @grid[2][@@move_map[move_int]] = player_symbol                      
+      end
+    elsif move == 'q'
+      puts 'Exiting game... See you next time!'
+      exit 
     else 
-      puts "Invalid entry. Please enter a number from 1 to 9."
+      puts 'Invalid entry! Please enter a number from 1 to 9'
+    end
+    @turn_count += 1
+    @player = next_player
+  end
+
+  def player_symbol
+    @turn_count.even? ? "x" : "o"
+  end
+
+  def next_player
+    player_symbol == "x" ? 2 : 1    
+  end
+
+  def p2_move
+  end
+
+  def play
+    while @turn_count < 9
+      player_move
+      display_game
+      puts "Please enter your next move:"
+      # TODO for game logic: if win condition == True 
     end
   end
 
+  def win
+    # game logic 
+  end
+
+  def display_rules
+    # for later
+  end
+
+
 end
-
-
-g = Interface.new
-
-g.get_input
 
 
