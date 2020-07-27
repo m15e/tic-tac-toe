@@ -85,6 +85,29 @@ class Interface
 
     @turn_count += 1
     @player = next_player    
+
+  def user_input
+    STDIN.noecho(&:gets).chomp
+  end
+
+  def player_move
+    move = user_input
+    move_int = move.to_i
+    if @move_range.include? move_int
+      puts "Previous move: #{move}"
+      puts "Turn: #{@turn_count + 1}, Player #{@player} is up next."
+      if move_int < 4
+        @grid[0][@move_map[move_int]] = player_symbol
+      elsif move_int > 3 and move_int < 7
+        @grid[1][@move_map[move_int]] = player_symbol
+      else
+        @grid[2][@move_map[move_int]] = player_symbol
+      end
+      @turn_count += 1
+      @player = next_player
+    else
+      puts 'Invalid entry! Please enter a number from 1 to 9'
+    end
   end
 
   def player_symbol
@@ -106,8 +129,10 @@ class Interface
       puts 'Please enter your next move:'
       # TODO: for game logic: if win condition == True
     end
+
     puts 'We have a draw!'
     display_game
+
   end
 end
 

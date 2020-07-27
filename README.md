@@ -1,4 +1,5 @@
-# Project Name
+## This project is Tic Tac Toe Game
+Building games, a great way to learn about object oriented programming. Build a tic-tac-toe game on the command line where two human players can play against each other and the board is displayed in between turns.the winner must have same element on one line or column, or diagonal.
 
 > One paragraph statement about the project.
 
@@ -8,19 +9,13 @@ Additional description about the project and its features.
 
 ## Built With
 
-- Major languages,
-- frameworks,
-- technologies used
+1. Ruby
+2. Rubocop (Linter)
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://raw.githack.com/m15e/tic-tac-toe/development/bin/main.rb)
 
-
-## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
 
 
 To get a local copy up and running follow these simple example steps.
@@ -41,17 +36,16 @@ To get a local copy up and running follow these simple example steps.
 
 ## Authors
 
-👤 **Author1**
 
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
+👤 **Mark Rode**
 
-👤 **Author2**
+- Github: [@m15e](https://github.com/m15e)
 
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
+👤 **Guy Gustave Nigaba**
+
+- Github: [@Guy-Gustave](https://github.com/Guy-Gustave)
+- LinkedIn: [Guy Gustave Nigaba](https://www.linkedin.com/in/guy-gustave-nigaba/)
+- Twitter: [@NigabaG](https://twitter.com/NigabaG)
 
 ## 🤝 Contributing
 
@@ -65,10 +59,6 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
-
-## 📝 License
+- The Odin Project
 
 This project is [MIT](lic.url) licensed.
