@@ -52,6 +52,10 @@ class Interface
   def player_move
     move = user_input
     move_int = move.to_i
+    if move == 'q'
+      puts 'Exiting game... See you next time!'
+      exit
+    end
     if @move_range.include? move_int
       puts "Previous move: #{move}"
       puts "Turn: #{@turn_count}, Player #{@player} is up next."
@@ -62,9 +66,6 @@ class Interface
       else
         @grid[2][@move_map[move_int]] = player_symbol
       end
-    # elsif move == 'q'
-    #   puts 'Exiting game... See you next time!'
-    #   exit
     else
       puts 'Invalid entry! Please enter a number from 1 to 9'
     end 
