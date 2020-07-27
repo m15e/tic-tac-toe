@@ -39,28 +39,31 @@ class Interface
     @control_grid.each { |row| puts row }
   end
 
-  def user_input
-    STDIN.noecho(&:gets).chomp
-  end
-
-  def player_move
-    move = user_input
-    move_int = move.to_i
-    if @move_range.include? move_int
-      puts "Previous move: #{move}"
-      puts "Turn: #{@turn_count + 1}, Player #{@player} is up next."
-      if move_int < 4
-        @grid[0][@move_map[move_int]] = player_symbol
-      elsif move_int > 3 and move_int < 7
-        @grid[1][@move_map[move_int]] = player_symbol
-      else
-        @grid[2][@move_map[move_int]] = player_symbol
-      end
+  def valid_input    
+    input = STDIN.noecho(&:gets).chomp    
+    if input == 'q'
+      puts 'Exiting game. See you next time!'
+      exit
+    elsif @move_range.include? input.to_i
+      return input.to_i
     else
       puts 'Invalid entry! Please enter a number from 1 to 9'
     end
+  end
+
+  def player_move
+    move = valid_input     
+    puts "Previous move: #{move}"
+    puts "Turn: #{@turn_count + 1}, Player #{@player} is up next."
+    if move < 4
+      @grid[0][@move_map[move]] = player_symbol
+    elsif move > 3 and move < 7
+      @grid[1][@move_map[move]] = player_symbol
+    else
+      @grid[2][@move_map[move]] = player_symbol
+    end
     @turn_count += 1
-    @player = next_player
+    @player = next_player    
   end
 
   def player_symbol
@@ -83,3 +86,5 @@ end
 
 # test game
 Interface.new
+
+
