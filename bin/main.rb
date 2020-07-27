@@ -5,6 +5,7 @@ class Interface
   def initialize
     @move_range = [1, 2, 3, 4, 5, 6, 7, 8, 9] # TODO: Transfer to game logic in Milestone 3
     @move_map = { 1 => 0, 2 => 2, 3 => 4, 4 => 0, 5 => 2, 6 => 4, 7 => 0, 8 => 2, 9 => 4 }
+    @win_conditions = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]]
     @turn_count = 0
     @player = 2
     @grid = ['_|_|_',
@@ -40,14 +41,18 @@ class Interface
   end
 
   def valid_input    
-    input = STDIN.noecho(&:gets).chomp    
+    input = STDIN.noecho(&:gets).chomp  
+    in_int = input.to_i  
     if input == 'q'
       puts 'Exiting game. See you next time!'
       exit
-    elsif @move_range.include? input.to_i
-      return input.to_i
+    elsif @move_range.include? in_int
+      @move_range.delete(in_int)
+      return in_int
     else
-      puts 'Invalid entry! Please enter a number from 1 to 9'
+      puts "Invalid entry! Please enter a number from 1 to 9.\n" 
+      puts 'Make sure the field you want to play is free! (or press q + enter to quit)'
+      valid_input
     end
   end
 
@@ -62,12 +67,32 @@ class Interface
     else
       @grid[2][@move_map[move]] = player_symbol
     end
+
+    @win_conditions.each do |wc|
+      if wc.include?(move)
+        wc[wc.index(move)] = player_symbol        
+      end
+      if wc.all?(player_symbol) 
+        puts "We have a winner!"
+        puts "Player #{current_player} (#{player_symbol}) Wins!"
+        display_game
+        exit      
+      end
+    end
+    
+    p "Game log:"
+    p @win_conditions
+
     @turn_count += 1
     @player = next_player    
   end
 
   def player_symbol
     @turn_count.even? ? 'x' : 'o'
+  end
+
+  def current_player
+    player_symbol == 'o' ? 2 : 1
   end
 
   def next_player
@@ -81,10 +106,60 @@ class Interface
       puts 'Please enter your next move:'
       # TODO: for game logic: if win condition == True
     end
+    puts 'We have a draw!'
+    display_game
   end
 end
 
 # test game
+#Interface.new
+
+# if p1 input = 1
+class MG 
+  
+  def initialize
+    @c = 0
+    @mr = [1,2,3,4,5,6,7,8,9]
+    @a = []
+    @b = []
+    @game_history = {'x' => [], 'o' => []}
+    pl
+  end
+
+  def eo
+    @c.even? ? 'x' : 'o'
+  end
+
+
+
+  def pl
+    while @c < 9
+      p "Please enter a number:"
+      inps = gets.chomp.to_i  
+      if @mr.include? inps
+        @mr.delete(inps)
+        @game_history[eo].push(inps)
+      
+      end
+      p "in: #{inps}"
+      p @game_history
+      @c += 1
+      wins = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[7,8,9]]
+      wins.each do |win| 
+        if win.include?(inps) 
+          win[win.index(inps)] = eo 
+        end
+      end
+      p wins
+    end
+  end
+end
+
 Interface.new
+#MG.new
+
+
+# pl = { 1 => 'x', 2 => 'x', 3 => 'x', 4 => 0, 5 => 2, 6 => 4, 7 => 0, 8 => 2, 9 => 4 }
+# p pl[1..3].all?('x')
 
 
