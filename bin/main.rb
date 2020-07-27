@@ -20,7 +20,7 @@ class Interface
                      '7|8|9']
     
     print_introduction
-    display_game    
+    display_game
     display_controls
     puts 'Player 1 please enter your first move (or press q + enter to exit game):'
     play
@@ -39,7 +39,7 @@ class Interface
     @grid.each { |row| puts row }
   end
 
-  def display_controls    
+  def display_controls
     puts "\nEnter a number from 1 to 9 to place your marker on the game grid above.\n"
     puts 'The grid below shows where your marker will be placed if you enter a number.'
     @control_grid.each { |row| puts row }
@@ -60,14 +60,14 @@ class Interface
       elsif move_int > 3 and move_int < 7
         @grid[1][@move_map[move_int]] = player_symbol
       else
-        @grid[2][@move_map[move_int]] = player_symbol           
+        @grid[2][@move_map[move_int]] = player_symbol
       end
-    elsif move == 'q'
-      puts 'Exiting game... See you next time!'
-      exit
+    # elsif move == 'q'
+    #   puts 'Exiting game... See you next time!'
+    #   exit
     else
       puts 'Invalid entry! Please enter a number from 1 to 9'
-    end
+    end 
     @turn_count += 1
     @player = next_player
   end
