@@ -127,12 +127,9 @@ class Interface
       player_move
       display_game
       puts 'Please enter your next move:'
-      # TODO: for game logic: if win condition == True
     end
-
     puts 'We have a draw!'
     display_game
-
   end
 end
 
