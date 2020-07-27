@@ -56,11 +56,11 @@ class Interface
       else
         @grid[2][@move_map[move_int]] = player_symbol
       end
+      @turn_count += 1
+      @player = next_player
     else
       puts 'Invalid entry! Please enter a number from 1 to 9'
     end
-    @turn_count += 1
-    @player = next_player
   end
 
   def player_symbol
