@@ -1,10 +1,8 @@
 #!/usr/bin/env ruby
-require 'matrix'
 
 class Interface
   require 'io/console'
-  
-  
+    
   def initialize
     @move_range = [1, 2, 3, 4, 5, 6, 7, 8, 9] # TODO: Transfer to game logic in Milestone 3
     @move_map = { 1 => 0, 2 => 2, 3 => 4, 4 => 0, 5 => 2, 6 => 4, 7 => 0, 8 => 2, 9 => 4 }
@@ -45,20 +43,16 @@ class Interface
     @control_grid.each { |row| puts row }
   end
   
-  def user_input
+  def user_input    
     STDIN.noecho(&:gets).chomp
   end
 
   def player_move
     move = user_input
-    move_int = move.to_i
-    if move == 'q'
-      puts 'Exiting game... See you next time!'
-      exit
-    end
+    move_int = move.to_i    
     if @move_range.include? move_int
       puts "Previous move: #{move}"
-      puts "Turn: #{@turn_count}, Player #{@player} is up next."
+      puts "Turn: #{@turn_count+1}, Player #{@player} is up next."
       if move_int < 4
         @grid[0][@move_map[move_int]] = player_symbol
       elsif move_int > 3 and move_int < 7
@@ -92,33 +86,5 @@ class Interface
 
 end
 
-
-#need something that stores move history
-
-# there's something here - were we add to rows and columns 
-
-# ruby has a matrix class - with diagonal - might make things easier over-all
-
-# row - win
-# 1,2,3
-# 4,5,6 
-# 7,8,9
-
-# col - win always + 3
-# 1,4,7
-# 2,5,8
-# 3,6,9
-
-# diagonal 
-# 1,5,9 + 4
-# 3,5,7 + 2
-
-# how to store 
-
+# test game
 g = Interface.new
-
-
-
-
-
-#g = Interface.new
