@@ -2,21 +2,17 @@
 
 class Interface
   require 'io/console'
-    
   def initialize
     @move_range = [1, 2, 3, 4, 5, 6, 7, 8, 9] # TODO: Transfer to game logic in Milestone 3
     @move_map = { 1 => 0, 2 => 2, 3 => 4, 4 => 0, 5 => 2, 6 => 4, 7 => 0, 8 => 2, 9 => 4 }
-
     @turn_count = 0
     @player = 2
     @grid = ['_|_|_',
              '_|_|_',
              ' | | ']
-
     @control_grid = ['1|2|3',
                      '4|5|6',
                      '7|8|9']
-    
     print_introduction
     display_game
     display_controls
@@ -42,7 +38,7 @@ class Interface
     puts 'The grid below shows where your marker will be placed if you enter a number.'
     @control_grid.each { |row| puts row }
   end
-  
+
   def user_input
     STDIN.noecho(&:gets).chomp
   end
