@@ -41,23 +41,23 @@ class Interface
   end
 
   def valid_input    
-    input = STDIN.noecho(&:gets).chomp  
-    in_int = input.to_i  
+    input = STDIN.noecho(&:gets).chomp
+    in_int = input.to_i
     if input == 'q'
       puts 'Exiting game. See you next time!'
       exit
     elsif @move_range.include? in_int
       @move_range.delete(in_int)
-      return in_int
+      in_int
     else
-      puts "Invalid entry! Please enter a number from 1 to 9.\n" 
+      puts "Invalid entry! Please enter a number from 1 to 9.\n"
       puts 'Make sure the field you want to play is free! (or press q + enter to quit)'
       valid_input
     end
   end
 
   def player_move
-    move = valid_input     
+    move = valid_input
     puts "Previous move: #{move}"
     puts "Turn: #{@turn_count + 1}, Player #{@player} is up next."
     if move < 4
@@ -68,10 +68,8 @@ class Interface
       @grid[2][@move_map[move]] = player_symbol
     end
 
-    @win_conditions.each do |wc|
-      if wc.include?(move)
-        wc[wc.index(move)] = player_symbol        
-      end
+    @win_conditions.each do |wc|      
+      wc[wc.index(move)] = player_symbol if wc.include?(move)     
       if wc.all?(player_symbol) 
         puts "We have a winner!"
         puts "Player #{current_player} (#{player_symbol}) Wins!"
