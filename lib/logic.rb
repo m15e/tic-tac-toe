@@ -3,7 +3,6 @@ module Player
   MOVE_GUIDE = ['1|2|3',
                 '4|5|6',
                 '7|8|9']
-
   def player_symbol
     @game[:turn_count].even? ? 'x' : 'o'
   end
@@ -28,9 +27,7 @@ module Player
 
     @game[:win_conditions].each do |wc|
       wc[wc.index(move)] = player_symbol if wc.include?(move)
-      if wc.all?(player_symbol)
-        @game[:win] = true
-      end 
+      @game[:win] = true if wc.all?(player_symbol)
     end
     @game[:turn_count] += 1
     @game[:player] = next_player
@@ -46,10 +43,10 @@ class Game
       win_conditions: [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]],
       turn_count: 0,
       player: 2,
-      :win => false,
-      :game_board => ['_|_|_',
-                      '_|_|_',
-                      ' | | ']
-    }            
+      win: false,
+      game_board: ['_|_|_',
+                   '_|_|_',
+                   ' | | ']
+    } 
   end
 end
