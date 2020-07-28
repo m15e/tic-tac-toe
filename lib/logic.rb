@@ -1,20 +1,16 @@
 module Player
-
   MOVE_GUIDE = ['1|2|3',
                 '4|5|6',
                 '7|8|9']
   def player_symbol
     @game[:turn_count].even? ? 'x' : 'o'
   end
-
   def next_player
     player_symbol == 'x' ? 1 : 2
   end
-
   def current_player
     player_symbol == 'x' ? 2 : 1
   end
-
   def player_move(move_in)
     move = move_in
     if move < 4
