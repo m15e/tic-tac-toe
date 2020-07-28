@@ -2,7 +2,7 @@ module Player
 
   MOVE_GUIDE = ['1|2|3',
                 '4|5|6',
-                '7|8|9']  
+                '7|8|9']
 
   def player_symbol
     @game[:turn_count].even? ? 'x' : 'o'
@@ -11,7 +11,7 @@ module Player
   def next_player
     player_symbol == 'x' ? 1 : 2
   end
-  
+
   def current_player
     player_symbol == 'x' ? 2 : 1
   end
@@ -28,16 +28,13 @@ module Player
 
     @game[:win_conditions].each do |wc|
       wc[wc.index(move)] = player_symbol if wc.include?(move)
-      if wc.all?(player_symbol) 
+      if wc.all?(player_symbol)
         @game[:win] = true
-      end      
+      end 
     end
     @game[:turn_count] += 1
     @game[:player] = next_player
-
   end
-  
-
 end
 
 class Game
@@ -56,6 +53,4 @@ class Game
                       ' | | ']
     }            
   end
-
-  
 end
