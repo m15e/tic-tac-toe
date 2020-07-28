@@ -1,7 +1,7 @@
 module Player
   MOVE_GUIDE = ['1|2|3',
                 '4|5|6',
-                '7|8|9']
+                '7|8|9'].freeze
 
   def player_symbol
     @game[:turn_count].even? ? 'x' : 'o'
@@ -48,6 +48,6 @@ class Game
       game_board: ['_|_|_',
                    '_|_|_',
                    ' | | ']
-    } 
+    }
   end
 end
