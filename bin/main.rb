@@ -44,22 +44,21 @@ class Interface < Game
 
   def play_game
     print_introduction
-    
     while @game[:turn_count] < 9
       player_move(user_input)
       puts 'Game board:'
       show_game
       puts "Player #{next_player} you're up next."
       puts 'Please enter your next move:'
-     
-      next unless @game[:win] == true 
+      next unless @game[:win] == true
+
       puts 'We have a winner!'
       puts "Player #{current_player} Wins!"
-      puts "game over!" if @game[:turn_count]==9
+      puts 'game over!' if @game[:turn_count] == 9
       show_game
-      exit   
+      exit
     end
-    puts "game over!"  
+    puts 'game over!'
   end
 end
 game = Interface.new
