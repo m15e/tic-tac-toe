@@ -3,7 +3,6 @@ require_relative '../lib/logic'
 require 'io/console'
 
 class Interface < Game
-
   def print_introduction
     puts 'Welcome to Tic Tac Toe!'
     puts 'Player 1, you start! Your move\'s marker is represented by "x".'
@@ -50,7 +49,7 @@ class Interface < Game
       show_game
       puts "Player #{next_player} you're up next."
       puts 'Please enter your next move:'
-        next unless @game[:win] == true
+      next unless @game[:win] == true
         puts 'We have a winner!'
         puts "Player #{current_player} Wins!"
         show_game
