@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require_relative "../lib/logic"
+require_relative '../lib/logic'
 require 'io/console'
 
 class Interface < Game
@@ -20,13 +20,13 @@ class Interface < Game
     @game[:game_board].each { |row| puts row }
   end
 
-  def show_controls 
+  def show_controls
     puts "\nEnter a number from 1 to 9 to place your marker on the game grid above.\n"
     puts 'The grid below shows where your marker will be placed if you enter a number.'
     MOVE_GUIDE.each { |row| puts row }
   end
 
-  def user_input    
+  def user_input
     input = STDIN.noecho(&:gets).chomp
     inp_int = input.to_i
     if input == 'q'
@@ -43,16 +43,16 @@ class Interface < Game
   end
 
   def play_game
-    print_introduction    
+    print_introduction
     while @game[:turn_count] < 9
       player_move(user_input)
-      puts "Game board:"
+      puts 'Game board:'
       show_game
       puts "Player #{next_player} you're up next."
       puts 'Please enter your next move:'
       if @game[:win] == true
         puts 'We have a winner!'
-        puts "Player #{current_player} Wins!" 
+        puts "Player #{current_player} Wins!"
         show_game
         exit
       end
