@@ -26,7 +26,7 @@ class Interface < Game
   end
 
   def user_input
-    input = STDIN.noecho(&:gets).chomp
+    input = gets.chomp
     inp_int = input.to_i
     if input == 'q'
       puts 'Exiting game. See you next time!'
@@ -34,8 +34,9 @@ class Interface < Game
     elsif @game[:positions].include? inp_int
       @game[:positions].delete(inp_int)
       inp_int
+
     else
-      puts "Invalid entry! Please enter a number from 1 to 9.\n"
+      puts "Invalid entry! Please enter a number not yet entered!\n"
       puts 'Make sure the field you want to play is free! (or press q + enter to quit)'
       user_input
     end
@@ -43,19 +44,22 @@ class Interface < Game
 
   def play_game
     print_introduction
+    
     while @game[:turn_count] < 9
       player_move(user_input)
       puts 'Game board:'
       show_game
       puts "Player #{next_player} you're up next."
       puts 'Please enter your next move:'
-      next unless @game[:win] == true
-
+     
+      next unless @game[:win] == true 
       puts 'We have a winner!'
       puts "Player #{current_player} Wins!"
+      puts "game over!" if @game[:turn_count]==9
       show_game
-      exit
+      exit   
     end
+    puts "game over!"  
   end
 end
 game = Interface.new
