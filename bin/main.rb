@@ -50,11 +50,11 @@ class Interface < Game
       puts "Player #{next_player} you're up next."
       puts 'Please enter your next move:'
       next unless @game[:win] == true
-      
-        puts 'We have a winner!'
-        puts "Player #{current_player} Wins!"
-        show_game
-        exit
+
+      puts 'We have a winner!'
+      puts "Player #{current_player} Wins!"
+      show_game
+      exit
     end
   end
 end
