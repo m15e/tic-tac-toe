@@ -20,7 +20,7 @@ If the board is full and no player has succeeeded completing a row of three, it'
 
 1. Click on the link above to play online on [repl.it](https://repl.it)
 2. Wait for the terminal on the right to complete loading 
-3. Enter `bin/main.rb` to start playing.
+3. Enter `bin/main.rb` to start playing and follow the in-game instructions.
 
 
 ## How to play on your local machine
