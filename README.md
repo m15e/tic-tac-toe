@@ -6,37 +6,37 @@ If the board is full and no player has succeeeded completing a row of three, it'
 
 ![example](./tic-tac-toe.gif)
 
-> Click on the Game Link below to start playing!
-
 ![screenshot](./screenshot.png)
-
-Additional description about the project and its features.
 
 ## Built With
 
 1. Ruby
 
-## Game Link
+## How to play online
+
+> Click on the Game Link below to start playing online!
 
 [Game Link](https://repl.it/@m15e/tic-tac-toe)
 
+1. Click on the link above to play online on [repl.it](https://repl.it)
+2. Wait for the terminal on the right to complete loading 
+3. Enter `bin/main.rb` to start playing.
 
+
+## How to play on your local machine
 
 To get a local copy up and running follow these simple example steps.
 
+1. You need to have [Ruby](https://www.ruby-lang.org/en/) installed on your computer to run this game.
+2. You should be able to run `terminal`, `command prompt`, `bash` or `Powershell` to open your command line.
+3. Run `git clone https://github.com/m15e/tic-tac-toe` to clone this repository to your local machine.
+4. Run `cd tic-tac-toe` to go to the game folder.
+5. Run `bin/main.rb` to start the game and follow the in-game instructions.
+
 ### Prerequisites
 
-### Setup
-
-### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
-
-
+- Ruby
+- Commandline, Terminal, Prompt, Bash or Powershell
 
 ## Authors
 
@@ -51,12 +51,6 @@ To get a local copy up and running follow these simple example steps.
 - LinkedIn: [Guy Gustave Nigaba](https://www.linkedin.com/in/guy-gustave-nigaba/)
 - Twitter: [@NigabaG](https://twitter.com/NigabaG)
 
-## 🤝 Contributing
-
-Contributions, issues and feature requests are welcome!
-
-Feel free to check the [issues page](issues/).
-
 ## Show your support
 
 Give a ⭐️ if you like this project!
@@ -64,5 +58,6 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - The Odin Project
+- Microverse
 
 This project is [MIT](lic.url) licensed.
