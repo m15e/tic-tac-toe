@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 require_relative '../lib/logic'
-require 'io/console'
 
 class Interface < Game
   def print_introduction
@@ -49,16 +48,31 @@ class Interface < Game
       puts 'Game board:'
       show_game
       puts "Player #{next_player} you're up next."
-      puts 'Please enter your next move:'
+      puts 'Please enter your next move (or press q + enter to quit):'
       next unless @game[:win] == true
 
       puts 'We have a winner!'
       puts "Player #{current_player} Wins!"
-      puts 'game over!' if @game[:turn_count] == 9
       show_game
-      exit
+      play_again
     end
-    puts 'game over!'
+    puts 'It\'s a draw!'
+    play_again
+  end
+
+  def play_again
+    puts 'Press "p + enter" to play again or "q + enter" to quit:'
+    input = gets.chomp
+    if input == 'q'
+      puts 'Exiting game. See you next time!'
+      exit
+    elsif input == 'p'
+      reset
+      play_game
+    else
+      puts 'Sorry invalid entry.'
+      play_again
+    end
   end
 end
 game = Interface.new
