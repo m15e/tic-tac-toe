@@ -4,10 +4,11 @@ Tic Tac Toe is a two player game, in which players take turns placing their mark
 The player that successfully places three of their markers in a horizontal, diagonal or vertical row wins.
 If the board is full and no player has succeeeded completing a row of three, it's a draw.
 
+![example](./tic-tac-toe.gif)
 
 > Click on the Game Link below to start playing!
 
-![screenshot](./app_screenshot.png)
+![screenshot](./screenshot.png)
 
 Additional description about the project and its features.
 
