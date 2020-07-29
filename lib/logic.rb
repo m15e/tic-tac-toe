@@ -38,6 +38,16 @@ class Game
   include Player
 
   def initialize
+    setup
+  end
+
+  def reset
+    setup
+  end
+
+  private 
+  
+  def setup
     @game = {
       positions: [1, 2, 3, 4, 5, 6, 7, 8, 9],
       cntrl_mapping: { 1 => 0, 2 => 2, 3 => 4, 4 => 0, 5 => 2, 6 => 4, 7 => 0, 8 => 2, 9 => 4 },
@@ -50,4 +60,5 @@ class Game
                    ' | | ']
     }
   end
+
 end
