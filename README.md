@@ -1,4 +1,4 @@
-## This project is Tic Tac Toe Game
+## Command Line Tic Tac Toe
 Building games, a great way to learn about object oriented programming. Build a tic-tac-toe game on the command line where two human players can play against each other and the board is displayed in between turns.the winner must have same element on one line or column, or diagonal.
 
 > One paragraph statement about the project.
@@ -12,9 +12,9 @@ Additional description about the project and its features.
 1. Ruby
 2. Rubocop (Linter)
 
-## Live Demo
+## Game Link
 
-[Live Demo Link](https://raw.githack.com/m15e/tic-tac-toe/development/bin/main.rb)
+[Game Link](https://repl.it/@m15e/tic-tac-toe)
 
 
 
