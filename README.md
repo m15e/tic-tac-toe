@@ -1,7 +1,11 @@
 ## Command Line Tic Tac Toe
-Building games, a great way to learn about object oriented programming. Build a tic-tac-toe game on the command line where two human players can play against each other and the board is displayed in between turns.the winner must have same element on one line or column, or diagonal.
+Welcome to Command Line Tic Tac Toe.
+Tic Tac Toe is a two player game, in which players take turns placing their marker, either an X or an O, on a 3 by 3 grid.
+The player that successfully places three of their markers in a horizontal, diagonal or vertical row wins.
+If the board is full and no player has succeeeded completing a row of three, it's a draw.
 
-> One paragraph statement about the project.
+
+> Click on the Game Link below to start playing!
 
 ![screenshot](./app_screenshot.png)
 
@@ -10,7 +14,6 @@ Additional description about the project and its features.
 ## Built With
 
 1. Ruby
-2. Rubocop (Linter)
 
 ## Game Link
 
