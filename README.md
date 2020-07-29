@@ -2,7 +2,7 @@
 Welcome to Command Line Tic Tac Toe.
 Tic Tac Toe is a two player game, in which players take turns placing their marker, either an X or an O, on a 3 by 3 grid.
 The player that successfully places three of their markers in a horizontal, diagonal or vertical row wins.
-If the board is full and no player has succeeeded completing a row of three, it's a draw.
+If the board is full and no player has succeeded completing a row of three, it's a draw.
 
 ![example](./tic-tac-toe.gif)
 
