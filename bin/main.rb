@@ -53,7 +53,7 @@ class Interface < Game
       next unless @game[:win] == true
 
       puts 'We have a winner!'
-      puts "Player #{current_player} Wins!"      
+      puts "Player #{current_player} Wins!"
       show_game
       play_again
     end
@@ -67,7 +67,7 @@ class Interface < Game
     if input == 'q'
       puts 'Exiting game. See you next time!'
       exit
-    elsif input = 'p'
+    elsif input == 'p'
       reset
       play_game
     else
