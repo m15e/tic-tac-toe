@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 require_relative '../lib/logic'
-require 'io/console'
 
 class Interface < Game
   def print_introduction
