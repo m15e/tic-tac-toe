@@ -39,6 +39,34 @@ describe Game do
       game.player_move(9)
       expect(game.instance_variable_get(:@game)[:game_board][2]).to eql(' | |x')
     end
+
+    context 'switches between player 1 & player 2' do
+      it 'switch to player 2 after player 1 makes a move' do
+        game.player_move(9)
+        expect(game.instance_variable_get(:@game)[:player]).to eql(2)
+      end
+
+      it 'switch to player 1 after player 2 makes a move' do
+        game.player_move(9)
+        game.player_move(2)
+        expect(game.instance_variable_get(:@game)[:player]).to eql(1)
+      end
+    end
+
+    it 'correctly identifies a win for player 1' do
+      [1, 2, 5, 3, 9].each { |num| game.player_move(num) }
+      expect(game.instance_variable_get(:@game)[:win]).to eql(true)
+    end
+
+    it 'correctly identifies a win for player 2' do
+      [1, 5, 2, 3, 4, 7].each { |num| game.player_move(num) }
+      expect(game.instance_variable_get(:@game)[:win]).to eql(true)
+    end
+
+    it 'correctly increments turn count' do
+      [1, 2, 3, 4, 5].each { |num| game.player_move(num) }
+      expect(game.instance_variable_get(:@game)[:turn_count]).to eql(5)
+    end
   end
 end
 
