@@ -4,9 +4,9 @@ Tic Tac Toe is a two player game, in which players take turns placing their mark
 The player that successfully places three of their markers in a horizontal, diagonal or vertical row wins.
 If the board is full and no player has succeeded completing a row of three, it's a draw.
 
-![example](./tic-tac-toe.gif)
+![example](./assets/tic-tac-toe.gif)
 
-![screenshot](./screenshot.png)
+![screenshot](./assets/screenshot.png)
 
 ## Built With
 
@@ -37,6 +37,25 @@ To get a local copy up and running follow these simple example steps.
 
 - Ruby
 - Commandline, Terminal, Prompt, Bash or Powershell
+- Rspec for testing
+
+## Run Tests using [Rspec](https://rspec.info)
+
+### Installing Rspec
+
+1. Installing Rspec
+
+~~~bash
+$ gem install rspec
+~~~
+
+2. Running tests with Rspec
+
+To run tests run the following code in the command line from the root directory.
+
+~~~bash
+$ rspec
+~~~
 
 ## Authors
 
@@ -44,6 +63,12 @@ To get a local copy up and running follow these simple example steps.
 👤 **Mark Rode**
 
 - Github: [@m15e](https://github.com/m15e)
+
+👤 **Clayton Siby**
+
+- Github: [@ClaytonSiby](https://github.com/ClaytonSiby)
+- Twitter: [@ClaytonSiby](https://twitter.com/ClaytonSiby)
+- Linkedin: [@clayton-siby](https://www.linkedin.com/in/clayton-siby-48a8a0183/)
 
 👤 **Guy Gustave Nigaba**
 

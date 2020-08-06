@@ -19,7 +19,7 @@ module Player
     move = move_in
     if move < 4
       @game[:game_board][0][@game[:cntrl_mapping][move]] = player_symbol
-    elsif move > 3 and move < 7
+    elsif (move > 3) && (move < 7)
       @game[:game_board][1][@game[:cntrl_mapping][move]] = player_symbol
     else
       @game[:game_board][2][@game[:cntrl_mapping][move]] = player_symbol
