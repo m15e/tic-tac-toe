@@ -40,6 +40,12 @@ describe Game do
       expect(game.instance_variable_get(:@game)[:game_board][2]).to eql(' | |x')
     end
 
+    it 'returns an error if a symbol is wrongly placed' do
+      game.player_move(9)
+      game.player_move(8)
+      expect(game.instance_variable_get(:@game)[:game_board][2]).not_to eql(' | |x')
+    end
+
     context 'switches between player 1 & player 2' do
       it 'switch to player 2 after player 1 makes a move' do
         game.player_move(9)
